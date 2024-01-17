@@ -3,10 +3,6 @@
 import readlineSync from 'readline-sync';
 import func from '../scr/cli.js';
 
-console.log('Welcome to the Brain Games!');
-const name = func();
-console.log(`Hello, ${name}!`);
-
 const evenOrNot = (nameOfPlayer) => {
    console.log('Answer "yes" if the number is even, otherwise answer "no".');
    let countOfGoodAns = 0;
@@ -32,4 +28,4 @@ const evenOrNot = (nameOfPlayer) => {
       console.log(`Congratulation, ${nameOfPlayer}`);
    }
 };
-evenOrNot(name);
+export default evenOrNot;

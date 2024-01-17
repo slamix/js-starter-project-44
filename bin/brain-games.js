@@ -2,4 +2,5 @@
 import func from '../scr/cli.js';
 
 console.log('Welcome to the Brain Games!');
-func();
+const nameOfPlayer = func();
+console.log(`Hello, ${nameOfPlayer}`);

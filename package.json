@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "type": "module",
   "description": "[![Actions Status](https://github.com/slamix/js-starter-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/slamix/js-starter-project-44/actions)",
-  "main": "index.js",
+  "main": "brain-even.js",
   "bin": {
-    "brain-games": "bin/brain-games.js"
+    "brain-games": "bin/brain-games.js",
+    "brain-even": "bin/brain-even.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

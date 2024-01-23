@@ -21,7 +21,7 @@ const progression = (nameOfPlayer) => {
    while (countOfGoodAns !== 3) {
       const step = Math.floor(1 + Math.random() * 10);
       const arr = fillArr(step);
-      const randomIndex = Math.floor(Math.random() * (arr.length));
+      const randomIndex = Math.floor(Math.random() * arr.length);
       arr[randomIndex] = '..';
       console.log(`Question: ${arr.join(' ')}`);
       const ansOfPlayer = readlineSync.question('Your answer: ');

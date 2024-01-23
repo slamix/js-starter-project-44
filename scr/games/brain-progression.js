@@ -1,15 +1,14 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 
-const fillArr = (stepOf) => {
+const fillArr = (size, stepOf) => {
    const min = 0;
    const max = 50;
    const arr = [];
    const leftBorderOfSize = 5, rightBorderOfSize = 10;
    const firstNumber = Math.floor(min + Math.random() * (max - min + 1));
-   const sizeOfArray = Math.floor(leftBorderOfSize + Math.random() * (rightBorderOfSize - leftBorderOfSize + 1));
    arr[0] = firstNumber;
-   for (let i = 1; i < sizeOfArray; i++) {
+   for (let i = 1; i < size; i++) {
       arr[i] = arr[i - 1] + stepOf;
    }
    return arr;
@@ -17,10 +16,12 @@ const fillArr = (stepOf) => {
 
 const progression = (nameOfPlayer) => {
    let countOfGoodAns = 0;
+   const leftBorderOfSize = 5, rightBorderOfSize = 10;
    console.log('What number is missing in the progression?');
    while (countOfGoodAns !== 3) {
       const step = Math.floor(1 + Math.random() * 10);
-      const arr = fillArr(step);
+      const sizeOfArray = Math.floor(leftBorderOfSize + Math.random() * (rightBorderOfSize - leftBorderOfSize + 1));
+      const arr = fillArr(sizeOfArray, step);
       const randomIndex = Math.floor(Math.random() * arr.length);
       arr[randomIndex] = '..';
       console.log(`Question: ${arr.join(' ')}`);

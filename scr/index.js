@@ -14,11 +14,9 @@ const printQuestion = (index, firstNum, secondNum) => {
 };
 
 const makeQACO = (index = -1) => { // makeQACO = make question, answer, compare and output
-   const min = 0;
-   const max = 30;
-   let number;
-   let ansOfPlayer;
-   let firstNum, secondNum, goodAns;
+   const min = 0, max = 30;
+   let ansOfPlayer, goodAns;
+   let firstNum, secondNum, number;
    if (index === -1) {
       number = Math.floor(min + Math.random() * (max + 1));
       console.log(`Question: ${number}`);

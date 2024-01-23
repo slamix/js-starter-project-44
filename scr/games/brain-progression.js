@@ -16,21 +16,16 @@ const fillArr = (stepOf) => {
 };
 
 const progression = (nameOfPlayer) => {
-   let randomIndex, goodAns, countOfGoodAns = 0;
-   const leftBorderOfStep = 1, rightBorderOfStep = 10;
+   let countOfGoodAns = 0;
    console.log('What number is missing in the progression?');
    while (countOfGoodAns !== 3) {
-      const step = Math.floor(leftBorderOfStep + Math.random() * (rightBorderOfStep - leftBorderOfStep + 1));
+      const step = Math.floor(1 + Math.random() * 10);
       const arr = fillArr(step);
-      randomIndex = Math.floor(Math.random() * (arr.length));
+      const randomIndex = Math.floor(Math.random() * (arr.length));
       arr[randomIndex] = '..';
       console.log(`Question: ${arr.join(' ')}`);
       const ansOfPlayer = readlineSync.question('Your answer: ');
-      if (arr.at(-1) === '..') {
-         goodAns = arr[randomIndex - 1] + step;
-      } else {
-         goodAns = arr[randomIndex + 1] - step;
-      }
+      const goodAns = arr[randomIndex - 1] === '..' ? arr[randomIndex + 1] - step : arr[randomIndex - 1] + step;
       if (Number(ansOfPlayer) === goodAns) {
          console.log('Correct!');
          countOfGoodAns++;

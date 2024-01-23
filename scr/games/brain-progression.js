@@ -44,8 +44,8 @@ const progression = (nameOfPlayer) => {
          countOfGoodAns++;
          console.log('Correct!');
       } else {
-         console.log(`'${ansOfPlayer}' is wrong answer ;(. Correct answer was '${goodAns}'`);
          countOfGoodAns = 0;
+         console.log(`'${ansOfPlayer}' is wrong answer ;(. Correct answer was '${goodAns}'`);
          console.log(`Let's try again, ${nameOfPlayer}.`);
       }
    }

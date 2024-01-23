@@ -33,8 +33,8 @@ const primeGame = (nameOfPlayer) => {
          countOfGoodAns++;
       } else {
          console.log(`'${ansOfPlayer}' is wrong answer ;(. Correct answer was '${goodAns}'`);
-         countOfGoodAns = 0;
          console.log(`Let's try again, ${nameOfPlayer}`);
+         countOfGoodAns = 0;
       }
    }
    console.log(`Congratulation, ${nameOfPlayer}!`);

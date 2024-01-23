@@ -41,8 +41,8 @@ const progression = (nameOfPlayer) => {
          goodAns = arr[randomIndex + 1] - step;
       }
       if (Number(ansOfPlayer) === goodAns) {
-         console.log('Correct!');
          countOfGoodAns++;
+         console.log('Correct!');
       } else {
          console.log(`'${ansOfPlayer}' is wrong answer ;(. Correct answer was '${goodAns}'`);
          countOfGoodAns = 0;

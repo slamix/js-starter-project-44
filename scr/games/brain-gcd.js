@@ -36,6 +36,6 @@ const gameGcd = (nameOfPlayer) => {
          console.log(`Let's try again, ${nameOfPlayer}`);
       }
    }
-   console.log(`Congratulation, ${nameOfPlayer}!`);
+   console.log(`Congratulations, ${nameOfPlayer}!`);
 };
 export default gameGcd;

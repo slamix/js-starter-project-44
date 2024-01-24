@@ -7,11 +7,6 @@ import { printQuestion, makeQACO } from '../index.js';
 
 const calc = (nameOfPlayer) => {
    let countOfGoodAns = 0;
-   const LEFT = 0;
-   const RIGHT = 30;
-   let ansOfPlayer;
-   let firstNum;
-   let secondNum;
    let finishOfFunc;
    console.log('What is the result of the expression?');
    while (countOfGoodAns !== 3) {

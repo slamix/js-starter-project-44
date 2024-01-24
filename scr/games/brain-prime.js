@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import func from '../cli.js';
 
 const primeNum = (number) => {
    let d = 2;
@@ -37,6 +36,6 @@ const primeGame = (nameOfPlayer) => {
          countOfGoodAns = 0;
       }
    }
-   console.log(`Congratulation, ${nameOfPlayer}!`);
+   console.log(`Congratulations, ${nameOfPlayer}!`);
 };
 export default primeGame;

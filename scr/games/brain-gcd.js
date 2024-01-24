@@ -3,19 +3,16 @@ import readlineSync from 'readline-sync';
 import func from '../cli.js';
 
 const gcd = (num1, num2) => {
-   if (num2 === 0) {
-      return num1;
-   } else if (num1 === 0) {
-      return num2;
-   }
-   while (num1 !== 0 && num2 !== 0) {
-      if (num1 > num2) {
-         num1 %= num2;
+   let firstNum = num1;
+   let secondNum = num2;
+   while (firstNum !== 0 && secondNum !== 0) {
+      if (firstNum > secondNum) {
+         firstNum %= secondNum;
       } else {
-         num2 %= num1;
+         secondNum %= firstNum;
       }
    }
-   return num1 + num2;
+   return firstNum + secondNum;
 };
 const gameGcd = (nameOfPlayer) => {
    let result, ansOfPlayer, countOfGoodAns = 0;

@@ -1,43 +1,50 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
+import {
+   greeting,
+   isRight,
+   useRightAnswer,
+   useWrongAnswer,
+   setCongratulation,
+} from '../index.js';
 
-const fillArr = (size, stepOf) => {
-   const min = 0;
-   const max = 50;
-   const arr = [];
-   const leftBorderOfSize = 5, rightBorderOfSize = 10;
-   const firstNumber = Math.floor(min + Math.random() * (max - min + 1));
-   arr[0] = firstNumber;
-   for (let i = 1; i < size; i++) {
-      arr[i] = arr[i - 1] + stepOf;
+let missedElem;
+
+const createProgression = () => {
+   const progressionArr = [];
+   const arrLength = Math.floor(5 + Math.random() * (10 - 5 + 1));
+   const firstProgressionElem = Math.floor(Math.random() * 51);
+   let currentProgressionElem = firstProgressionElem;
+   const progressionStep = Math.floor(1 + Math.random() * (11));
+   const indexMissedElem = Math.floor(Math.random() * (arrLength - 0));
+
+   for (let i = 0; i < arrLength; i += 1) {
+      if (i === indexMissedElem) {
+         progressionArr.push('..');
+         missedElem = currentProgressionElem;
+      } else {
+         progressionArr.push(currentProgressionElem);
+      }
+      currentProgressionElem += progressionStep;
    }
-   return arr;
+
+   return progressionArr;
 };
 
-const progression = (nameOfPlayer) => {
-   let countOfGoodAns = 0, previousIndex, randomIndex;
-   const leftBorderOfSize = 5, rightBorderOfSize = 10;
+const progression = () => {
+   let countOfGoodAns = 0;
+   greeting();
    console.log('What number is missing in the progression?');
-   while (countOfGoodAns !== 3) {
-      const step = Math.floor(1 + Math.random() * 10);
-      const sizeOfArray = Math.floor(leftBorderOfSize + Math.random() * (rightBorderOfSize - leftBorderOfSize + 1));
-      const arr = fillArr(sizeOfArray, step);
-      do {
-         randomIndex = Math.floor(Math.random() * arr.length);
-      } while (previousIndex === randomIndex);
-      previousIndex = randomIndex;
-      arr[randomIndex] = '..';
-      console.log(`Question: ${arr.join(' ')}`);
-      const ansOfPlayer = readlineSync.question('Your answer: ');
-      const goodAns = arr[randomIndex - 1] === '..' ? arr[randomIndex + 1] - step : arr[randomIndex - 1] + step;
-      if (Number(ansOfPlayer) === goodAns) {
-         console.log('Correct!');
-         countOfGoodAns++;
+   while (countOfGoodAns < 3) {
+      const progressionStr = createProgression().join(' ');
+      const answer = isRight(progressionStr, missedElem.toString());
+      if (answer) {
+         useRightAnswer();
+         countOfGoodAns += 1;
       } else {
-         console.log(`'${ansOfPlayer}' is wrong answer ;(. Correct answer was '${goodAns}'.\nLet's try again, ${nameOfPlayer}`);
+         useWrongAnswer(missedElem);
          countOfGoodAns = 0;
       }
    }
-   console.log(`Congratulation, ${nameOfPlayer}!`);
+   setCongratulation();
 };
 export default progression;

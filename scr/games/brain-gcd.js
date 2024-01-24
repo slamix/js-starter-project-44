@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import func from '../cli.js';
 
 const gcd = (num1, num2) => {
    let firstNum = num1;
@@ -14,6 +13,7 @@ const gcd = (num1, num2) => {
    }
    return firstNum + secondNum;
 };
+
 const gameGcd = (nameOfPlayer) => {
    let result, ansOfPlayer, countOfGoodAns = 0;
    const min = 0;

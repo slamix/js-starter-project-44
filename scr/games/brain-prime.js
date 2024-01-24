@@ -2,9 +2,6 @@
 import readlineSync from 'readline-sync';
 
 const primeNum = (number) => {
-   if (number === 1) {
-      return 'yes';
-   }
    let d = 2;
    while (d * d < number) {
       if (number % d === 0) {

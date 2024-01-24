@@ -1,28 +1,50 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import func from '../cli.js';
-import { printQuestion, makeQACO } from '../index.js';
+import {
+   greeting,
+   isRight,
+   useRightAnswer,
+   useWrongAnswer,
+   setCongratulation,
+} from '../index.js';
 
-// makeQACO = make question, answer, compare and output
+const printQuestion = (index, firstNum, secondNum) => {
+   if (index === 0) {
+      console.log(`Question: ${firstNum} + ${secondNum}`);
+      return firstNum + secondNum;
+   } else if (index === 1) {
+      console.log(`Question: ${firstNum} - ${secondNum}`);
+      return firstNum - secondNum;
+   } else {
+      console.log(`Question: ${firstNum} * ${secondNum}`);
+      return firstNum * secondNum;
+   }
+};
 
-const calc = (nameOfPlayer) => {
+const calc = () => {
+   greeting();
    let countOfGoodAns = 0;
-   let finishOfFunc;
+   let ansOfPlayer;
+   let goodAns;
+   let firstNum, secondNum;
    console.log('What is the result of the expression?');
    while (countOfGoodAns !== 3) {
       for (let i = 0; i < 3; i++) {
-         finishOfFunc = makeQACO(i);
-         if (finishOfFunc === 'Correct!') {
-            console.log(finishOfFunc);
+         firstNum = Math.floor(Math.random() * 30);
+         secondNum = Math.floor(Math.random() * 30);
+         goodAns = printQuestion(i, firstNum, secondNum);
+         ansOfPlayer = readlineSync.question('Your answer: ');
+         if (Number(ansOfPlayer) === goodAns) {
+            useRightAnswer();
             countOfGoodAns++;
          } else {
+            useWrongAnswer(goodAns);
             countOfGoodAns = 0;
-            console.log(finishOfFunc);
-            console.log(`Let's try again, ${nameOfPlayer}`);
             break;
          }
       }
    }
-   console.log(`Congratulation, ${nameOfPlayer}!`);
+   setCongratulation();
 };
+
 export default calc;

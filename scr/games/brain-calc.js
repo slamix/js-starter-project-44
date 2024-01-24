@@ -24,8 +24,7 @@ const printQuestion = (index, firstNum, secondNum) => {
 const calc = () => {
    greeting();
    let countOfGoodAns = 0;
-   let ansOfPlayer;
-   let goodAns;
+   let ansOfPlayer, goodAns;
    let firstNum, secondNum;
    console.log('What is the result of the expression?');
    while (countOfGoodAns !== 3) {

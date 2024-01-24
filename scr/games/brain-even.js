@@ -1,29 +1,34 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
-import func from '../cli.js';
-import { printQuestion, makeQACO } from '../index.js';
+import {
+   greeting,
+   isRight,
+   useRightAnswer,
+   useWrongAnswer,
+   setCongratulation,
+} from '../index.js';
 
-// makeQACO = make question, answer, compare and output
-
-const evenOrNot = (nameOfPlayer) => {
+const evenOrNot = () => {
+   greeting();
    console.log('Answer "yes" if the number is even, otherwise answer "no".');
    let countOfGoodAns = 0;
-   const min = 0;
-   const max = 50;
-   let answer;
-   let number;
-   let finishOfFunc;
+   let ansOfPlayer, goodAns;
+   let num;
    while (countOfGoodAns !== 3) {
-      finishOfFunc = makeQACO();
-      if (finishOfFunc === 'Correct!') {
-         console.log(finishOfFunc);
+      num = Math.floor(Math.random() * 50);
+      if (num % 2 === 0) {
+         goodAns = 'yes';
+      } else {
+         goodAns = 'no';
+      }
+      ansOfPlayer = isRight(num, goodAns);
+      if (ansOfPlayer) {
+         useRightAnswer();
          countOfGoodAns++;
       } else {
+         useWrongAnswer(goodAns);
          countOfGoodAns = 0;
-         console.log(finishOfFunc);
-         console.log(`Let's try again, ${nameOfPlayer}`);
       }
    }
-   console.log(`Congratulation, ${nameOfPlayer}!`);
+   setCongratulation();
 };
 export default evenOrNot;

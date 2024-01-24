@@ -15,14 +15,17 @@ const fillArr = (size, stepOf) => {
 };
 
 const progression = (nameOfPlayer) => {
-   let countOfGoodAns = 0;
+   let countOfGoodAns = 0, previousIndex, randomIndex;
    const leftBorderOfSize = 5, rightBorderOfSize = 10;
    console.log('What number is missing in the progression?');
    while (countOfGoodAns !== 3) {
       const step = Math.floor(1 + Math.random() * 10);
       const sizeOfArray = Math.floor(leftBorderOfSize + Math.random() * (rightBorderOfSize - leftBorderOfSize + 1));
       const arr = fillArr(sizeOfArray, step);
-      const randomIndex = Math.floor(Math.random() * arr.length);
+      do {
+         randomIndex = Math.floor(Math.random() * arr.length);
+      } while (previousIndex === randomIndex);
+      previousIndex = randomIndex;
       arr[randomIndex] = '..';
       console.log(`Question: ${arr.join(' ')}`);
       const ansOfPlayer = readlineSync.question('Your answer: ');

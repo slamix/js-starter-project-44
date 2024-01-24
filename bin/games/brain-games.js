@@ -1,7 +1,4 @@
 #!/usr/bin/env node
-import func from '../../scr/cli.js';
-import greetings from '../../scr/games/brain-games.js';
+import { greeting } from '../../scr/index.js';
 
-func();
-const nameOfPlayer = greetings();
-console.log(`Hello, ${nameOfPlayer}!`);
+greeting();

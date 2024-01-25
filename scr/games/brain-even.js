@@ -13,9 +13,8 @@ const evenOrNot = () => {
   let countOfGoodAns = 0;
   let ansOfPlayer;
   let goodAns;
-  let num;
   while (countOfGoodAns !== 3) {
-    num = Math.floor(Math.random() * 50);
+    const num = Math.floor(Math.random() * 50);
     if (num % 2 === 0) {
       goodAns = 'yes';
     } else {

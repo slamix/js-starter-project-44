@@ -3,21 +3,25 @@ import readlineSync from 'readline-sync';
 
 const primeNum = (number) => {
   let d = 2;
+  let result = 'yes';
   while (d * d < number) {
     if (number % d === 0) {
-      return 'no';
+      result = 'no';
+      break;
     } else {
       d++;
     }
   }
   if (d * d === number) {
-    return 'no';
+    result = 'no';
   }
-  return 'yes';
+  return result;
 };
 
 const primeGame = (nameOfPlayer) => {
-  let ansOfPlayer, goodAns, countOfGoodAns = 0;
+  let ansOfPlayer;
+  let goodAns;
+  let countOfGoodAns = 0;
   const leftBorder = 2;
   const rightBorder = 110;
   let number;
@@ -29,7 +33,7 @@ const primeGame = (nameOfPlayer) => {
     goodAns = primeNum(number);
     if (ansOfPlayer === goodAns) {
       console.log('Correct!');
-      countOfGoodAns++;
+      countOfGoodAns += 1;
     } else {
       console.log(`'${ansOfPlayer}' is wrong answer ;(. Correct answer was '${goodAns}'`);
       console.log(`Let's try again, ${nameOfPlayer}!`);

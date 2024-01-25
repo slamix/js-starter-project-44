@@ -29,7 +29,7 @@ const gameGcd = (nameOfPlayer) => {
     ansOfPlayer = readlineSync.question('Your answer: ');
     if (result === Number(ansOfPlayer)) {
       console.log('Correct!');
-      countOfGoodAns++;
+      countOfGoodAns += 1;
     } else {
       countOfGoodAns = 0;
       console.log(`'${ansOfPlayer}' is wrong answer ;(. Correct answer was '${result}'.`);

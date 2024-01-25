@@ -28,22 +28,20 @@ const operationResult = (a, b) => {
 const calc = () => {
    greeting();
    let countOfGoodAns = 0;
-   let ansOfPlayer, goodAns, wrongAns;
+   let ansOfPlayer, goodAns, wrongAns = 0;
    let firstNum, secondNum;
    console.log('What is the result of the expression?');
-   while (countOfGoodAns !== 3 && wrongAns !== 1) {
-      for (let i = 0; i < 3; i++) {
-         firstNum = Math.floor(Math.random() * 30);
-         secondNum = Math.floor(Math.random() * 30);
-         goodAns = String(operationResult(firstNum, secondNum));
-         ansOfPlayer = isRight(`${firstNum} ${operator} ${secondNum}`, goodAns);
-         if (ansOfPlayer) {
-            useRightAnswer();
-            countOfGoodAns++;
-         } else {
-            useWrongAnswer(goodAns);
-            wrongAns++;
-         }
+   while (countOfGoodAns !== 3 && wrongAns < 1) {
+      firstNum = Math.floor(Math.random() * 30);
+      secondNum = Math.floor(Math.random() * 30);
+      goodAns = String(operationResult(firstNum, secondNum));
+      ansOfPlayer = isRight(`${firstNum} ${operator} ${secondNum}`, goodAns);
+      if (ansOfPlayer) {
+         useRightAnswer();
+         countOfGoodAns++;
+      } else {
+         useWrongAnswer(goodAns);
+         wrongAns++;
       }
    }
    if (countOfGoodAns === 3) {

@@ -8,7 +8,7 @@ parserOptions:
 rules: {
   no-console: 0,
   import/extensions: 0,
-  indent: [error, 3],
+  indent: [error, 2],
   no-unused-vars: 0,
   no-plusplus: 0,
   no-else-return: 0,

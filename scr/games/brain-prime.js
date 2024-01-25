@@ -34,8 +34,11 @@ const primeGame = (nameOfPlayer) => {
          console.log(`'${ansOfPlayer}' is wrong answer ;(. Correct answer was '${goodAns}'`);
          console.log(`Let's try again, ${nameOfPlayer}`);
          countOfGoodAns = 0;
+         break;
       }
    }
-   console.log(`Congratulations, ${nameOfPlayer}!`);
+   if (countOfGoodAns === 3) {
+      console.log(`Congratulations, ${nameOfPlayer}!`);
+   }
 };
 export default primeGame;

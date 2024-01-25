@@ -27,8 +27,11 @@ const evenOrNot = () => {
       } else {
          useWrongAnswer(goodAns);
          countOfGoodAns = 0;
+         break;
       }
    }
-   setCongratulation();
+   if (countOfGoodAns === 3) {
+      setCongratulation();
+   }
 };
 export default evenOrNot;

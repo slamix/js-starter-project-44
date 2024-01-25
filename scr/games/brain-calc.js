@@ -8,42 +8,52 @@ import {
    setCongratulation,
 } from '../index.js';
 
-const printQuestion = (index, firstNum, secondNum) => {
-   if (index === 0) {
-      console.log(`Question: ${firstNum} + ${secondNum}`);
-      return firstNum + secondNum;
-   } else if (index === 1) {
-      console.log(`Question: ${firstNum} - ${secondNum}`);
-      return firstNum - secondNum;
+let operator;
+const operationResult = (a, b) => {
+   const numberOperation = Math.floor(Math.random() * 3);
+   let result;
+   if (numberOperation === 1) {
+      operator = '+';
+      result = a + b;
+   } else if (numberOperation === 2) {
+      operator = '-';
+      result = a - b;
    } else {
-      console.log(`Question: ${firstNum} * ${secondNum}`);
-      return firstNum * secondNum;
+      operator = '*';
+      result = a * b;
    }
+   return result;
 };
 
 const calc = () => {
    greeting();
    let countOfGoodAns = 0;
-   let ansOfPlayer, goodAns;
+   let ansOfPlayer, goodAns, wrongAns;
    let firstNum, secondNum;
    console.log('What is the result of the expression?');
    while (countOfGoodAns !== 3) {
       for (let i = 0; i < 3; i++) {
          firstNum = Math.floor(Math.random() * 30);
          secondNum = Math.floor(Math.random() * 30);
-         goodAns = printQuestion(i, firstNum, secondNum);
-         ansOfPlayer = readlineSync.question('Your answer: ');
-         if (Number(ansOfPlayer) === goodAns) {
+         goodAns = String(operationResult(firstNum, secondNum));
+         ansOfPlayer = isRight(`${firstNum} ${operator} ${secondNum}`, goodAns);
+         if (ansOfPlayer) {
             useRightAnswer();
             countOfGoodAns++;
          } else {
             useWrongAnswer(goodAns);
             countOfGoodAns = 0;
+            wrongAns = 1;
             break;
          }
       }
+      if (wrongAns !== 0) {
+         break;
+      }
    }
-   setCongratulation();
+   if (countOfGoodAns === 3) {
+      setCongratulation();
+   }
 };
 
 export default calc;

@@ -10,8 +10,8 @@
    5. простое ли число.
 GAMES:
 
-brain-even   https://asciinema.org/a/19MzcYas4F0LjohXO7P2GUAtO
-brain-calc   https://asciinema.org/a/H6RTn7VLzsUkdQQEH0fmN3nny
-brain-gcd    https://asciinema.org/a/cIFnoJxWaFSHDMUSZDYFjP2jn
-brain-progression    https://asciinema.org/a/fobzAqtBxJJ9boqyeLvZ5jSDS
-brain-prime    https://asciinema.org/a/HjeWKbzmTGo5glYTBTlDkWPYP
+brain-even   https://asciinema.org/a/13oTojvb3yIBsBGeY2CaZYF6w
+brain-calc   https://asciinema.org/a/nlwqvKNSzD7wuObnRdXeXw7ZZ
+brain-gcd    https://asciinema.org/a/Q1bpb7gCGpbmq7ll83DMhebVw
+brain-progression    https://asciinema.org/a/YRiYpjshwnzQelcea5AJUHspr
+brain-prime    https://asciinema.org/a/Cm2uCDQw6IyxbOqUa5jY8u5lU

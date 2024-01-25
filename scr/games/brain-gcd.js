@@ -33,7 +33,7 @@ const gameGcd = (nameOfPlayer) => {
       } else {
          countOfGoodAns = 0;
          console.log(`'${ansOfPlayer}' is wrong answer ;(. Correct answer was '${result}'.`);
-         console.log(`Let's try again, ${nameOfPlayer}`);
+         console.log(`Let's try again, ${nameOfPlayer}!`);
          break;
       }
    }

@@ -15,7 +15,9 @@ const gcd = (num1, num2) => {
 };
 
 const gameGcd = (nameOfPlayer) => {
-  let result, ansOfPlayer, countOfGoodAns = 0;
+  let result;
+  let ansOfPlayer;
+  let countOfGoodAns = 0;
   const min = 0;
   const max = 50;
   let firstNum;

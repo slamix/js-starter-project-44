@@ -9,7 +9,7 @@ const primeNum = (number) => {
       result = 'no';
       break;
     } else {
-      d++;
+      d += 1;
     }
   }
   if (d * d === number) {

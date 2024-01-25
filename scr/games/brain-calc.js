@@ -27,17 +27,13 @@ const operationResult = (a, b) => {
 const calc = () => {
   greeting();
   let countOfGoodAns = 0;
-  let ansOfPlayer;
-  let goodAns;
   let wrongAns = 0;
-  let firstNum;
-  let secondNum;
   console.log('What is the result of the expression?');
   while (countOfGoodAns !== 3 && wrongAns < 1) {
-    firstNum = Math.floor(Math.random() * 30);
-    secondNum = Math.floor(Math.random() * 30);
-    goodAns = String(operationResult(firstNum, secondNum));
-    ansOfPlayer = isRight(`${firstNum} ${operator} ${secondNum}`, goodAns);
+    const firstNum = Math.floor(Math.random() * 30);
+    const secondNum = Math.floor(Math.random() * 30);
+    const goodAns = String(operationResult(firstNum, secondNum));
+    const ansOfPlayer = isRight(`${firstNum} ${operator} ${secondNum}`, goodAns);
     if (ansOfPlayer) {
       useRightAnswer();
       countOfGoodAns += 1;

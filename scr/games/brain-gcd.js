@@ -20,7 +20,7 @@ const gameGcd = (nameOfPlayer) => {
    const max = 50;
    let firstNum;
    let secondNum;
-   console.log('Find a greatest divisor of given numbers.');
+   console.log('Find the greatest common divisor of given numbers.');
    while (countOfGoodAns !== 3) {
       firstNum = Math.floor(min + Math.random() * (max + 1));
       secondNum = Math.floor(min + Math.random() * (max + 1));

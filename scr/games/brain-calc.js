@@ -31,7 +31,7 @@ const calc = () => {
    let ansOfPlayer, goodAns, wrongAns;
    let firstNum, secondNum;
    console.log('What is the result of the expression?');
-   while (countOfGoodAns !== 3) {
+   while (countOfGoodAns !== 3 && wrongAns !== 1) {
       for (let i = 0; i < 3; i++) {
          firstNum = Math.floor(Math.random() * 30);
          secondNum = Math.floor(Math.random() * 30);
@@ -42,13 +42,8 @@ const calc = () => {
             countOfGoodAns++;
          } else {
             useWrongAnswer(goodAns);
-            countOfGoodAns = 0;
-            wrongAns = 1;
-            break;
+            wrongAns++;
          }
-      }
-      if (wrongAns !== 0) {
-         break;
       }
    }
    if (countOfGoodAns === 3) {

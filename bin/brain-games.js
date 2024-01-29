@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import func from '../scr/cli.js';
+import sayWelcomeSpeech from '../scr/cli.js';
 
-func();
+sayWelcomeSpeech();

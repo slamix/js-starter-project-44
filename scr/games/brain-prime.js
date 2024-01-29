@@ -8,6 +8,9 @@ import {
 } from '../index.js';
 
 const isPrimeNum = (number) => {
+  if (number === 0 || number === 1) {
+    return 'no';
+  }
   let d = 2;
   let result = 'yes';
   while (d * d < number) {

@@ -1,5 +1,5 @@
-#!/usr/bin/env node
 import {
+  createNum,
   greeting,
   isRight,
   useRightAnswer,
@@ -7,14 +7,14 @@ import {
   setCongratulation,
 } from '../index.js';
 
-const evenOrNot = () => {
+const startEvenOrNotGame = () => {
   greeting();
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   let countOfGoodAns = 0;
   let ansOfPlayer;
   let goodAns;
   while (countOfGoodAns !== 3) {
-    const num = Math.floor(Math.random() * 50);
+    const num = createNum();
     if (num % 2 === 0) {
       goodAns = 'yes';
     } else {
@@ -34,4 +34,4 @@ const evenOrNot = () => {
     setCongratulation();
   }
 };
-export default evenOrNot;
+export default startEvenOrNotGame;

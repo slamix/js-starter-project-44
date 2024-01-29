@@ -2,6 +2,7 @@ import readlineSync from 'readline-sync';
 
 let name;
 let ansOfPlayer;
+export const createNum = () => Math.floor(Math.random() * 30);
 
 export const greeting = () => {
   console.log('Welcome to the Brain Games!');

@@ -1,5 +1,5 @@
-#!/usr/bin/env node
 import {
+  createNum,
   greeting,
   isRight,
   useRightAnswer,
@@ -12,9 +12,9 @@ let missedElem;
 const createProgression = () => {
   const progressionArr = [];
   const arrLength = Math.floor(5 + Math.random() * (10 - 5 + 1));
-  const firstProgressionElem = Math.floor(Math.random() * 51);
+  const firstProgressionElem = createNum();
   let currentProgressionElem = firstProgressionElem;
-  const progressionStep = Math.floor(1 + Math.random() * (11));
+  const progressionStep = Math.floor(1 + Math.random() * (10));
   const indexMissedElem = Math.floor(Math.random() * (arrLength - 0));
 
   for (let i = 0; i < arrLength; i += 1) {
@@ -29,7 +29,7 @@ const createProgression = () => {
   return progressionArr;
 };
 
-const progression = () => {
+const startProgressionGame = () => {
   let countOfGoodAns = 0;
   greeting();
   console.log('What number is missing in the progression?');
@@ -49,4 +49,4 @@ const progression = () => {
     setCongratulation();
   }
 };
-export default progression;
+export default startProgressionGame;

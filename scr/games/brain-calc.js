@@ -1,5 +1,5 @@
-#!/usr/bin/env node
 import {
+  createNum,
   greeting,
   isRight,
   useRightAnswer,
@@ -24,14 +24,14 @@ const operationResult = (a, b) => {
   return result;
 };
 
-const calc = () => {
+const startCalcGame = () => {
   greeting();
   let countOfGoodAns = 0;
   let wrongAns = 0;
   console.log('What is the result of the expression?');
   while (countOfGoodAns !== 3 && wrongAns < 1) {
-    const firstNum = Math.floor(Math.random() * 30);
-    const secondNum = Math.floor(Math.random() * 30);
+    const firstNum = createNum();
+    const secondNum = createNum();
     const goodAns = String(operationResult(firstNum, secondNum));
     const ansOfPlayer = isRight(`${firstNum} ${operator} ${secondNum}`, goodAns);
     if (ansOfPlayer) {
@@ -47,4 +47,4 @@ const calc = () => {
   }
 };
 
-export default calc;
+export default startCalcGame;

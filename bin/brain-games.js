@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import sayWelcomeSpeech from '../scr/cli.js';
+import sayWelcomeSpeech from '../src/cli.js';
 
 sayWelcomeSpeech();

@@ -1,9 +1,7 @@
 import {
   createNum,
   greeting,
-  isRight,
-  useRightAnswer,
-  useWrongAnswer,
+  engineOfGames,
   setCongratulation,
 } from '../index.js';
 
@@ -24,18 +22,15 @@ const startGcdGame = () => {
   greeting();
   let countOfGoodAns = 0;
   let countOfWrongAns = 0;
-  let finishOfFunc;
   console.log('Find the greatest common divisor of given numbers.');
   while (countOfGoodAns !== 3 && countOfWrongAns < 1) {
     const firstNum = createNum();
     const secondNum = createNum();
     const goodAns = findGcd(firstNum, secondNum).toString();
-    finishOfFunc = isRight(`${firstNum} ${secondNum}`, goodAns);
-    if (finishOfFunc) {
-      useRightAnswer();
+    const ansOfPlayer = engineOfGames(`${firstNum} ${secondNum}`, goodAns);
+    if (ansOfPlayer) {
       countOfGoodAns += 1;
     } else {
-      useWrongAnswer(goodAns);
       countOfWrongAns += 1;
     }
   }

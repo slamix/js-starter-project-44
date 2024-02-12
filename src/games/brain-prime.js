@@ -1,9 +1,7 @@
 import {
   createNum,
   greeting,
-  isRight,
-  useRightAnswer,
-  useWrongAnswer,
+  engineOfGames,
   setCongratulation,
 } from '../index.js';
 
@@ -35,12 +33,10 @@ const startPrimeGame = () => {
   while (countOfGoodAns !== 3 && countOfWrongAns < 1) {
     const number = createNum();
     const goodAns = isPrimeNum(number).toString();
-    const finishOfFunc = isRight(`${number}`, goodAns);
-    if (finishOfFunc) {
-      useRightAnswer();
+    const ansOfPlayer = engineOfGames(`${number}`, goodAns);
+    if (ansOfPlayer) {
       countOfGoodAns += 1;
     } else {
-      useWrongAnswer(goodAns);
       countOfWrongAns += 1;
     }
   }

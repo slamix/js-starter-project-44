@@ -1,10 +1,8 @@
 import {
   createNum,
   greeting,
-  isRight,
-  useRightAnswer,
-  useWrongAnswer,
   setCongratulation,
+  engineOfGames,
 } from '../index.js';
 
 const startEvenOrNotGame = () => {
@@ -20,13 +18,10 @@ const startEvenOrNotGame = () => {
     } else {
       goodAns = 'no';
     }
-    ansOfPlayer = isRight(num, goodAns);
+    ansOfPlayer = engineOfGames(num, goodAns);
     if (ansOfPlayer) {
-      useRightAnswer();
       countOfGoodAns += 1;
     } else {
-      useWrongAnswer(goodAns);
-      countOfGoodAns = 0;
       break;
     }
   }

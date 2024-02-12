@@ -1,10 +1,8 @@
 import {
   createNum,
   greeting,
-  isRight,
-  useRightAnswer,
-  useWrongAnswer,
   setCongratulation,
+  engineOfGames,
 } from '../index.js';
 
 let operator;
@@ -32,13 +30,11 @@ const startCalcGame = () => {
   while (countOfGoodAns !== 3 && wrongAns < 1) {
     const firstNum = createNum();
     const secondNum = createNum();
-    const goodAns = String(operationResult(firstNum, secondNum));
-    const ansOfPlayer = isRight(`${firstNum} ${operator} ${secondNum}`, goodAns);
+    const goodAns = (operationResult(firstNum, secondNum)).toString();
+    const ansOfPlayer = engineOfGames(`${firstNum} ${operator} ${secondNum}`, goodAns);
     if (ansOfPlayer) {
-      useRightAnswer();
       countOfGoodAns += 1;
     } else {
-      useWrongAnswer(goodAns);
       wrongAns += 1;
     }
   }

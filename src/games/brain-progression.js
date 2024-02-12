@@ -1,9 +1,7 @@
 import {
   createNum,
   greeting,
-  isRight,
-  useRightAnswer,
-  useWrongAnswer,
+  engineOfGames,
   setCongratulation,
 } from '../index.js';
 
@@ -35,13 +33,10 @@ const startProgressionGame = () => {
   console.log('What number is missing in the progression?');
   while (countOfGoodAns < 3) {
     const progressionStr = createProgression().join(' ');
-    const answer = isRight(progressionStr, missedElem.toString());
+    const answer = engineOfGames(progressionStr, missedElem.toString());
     if (answer) {
-      useRightAnswer();
       countOfGoodAns += 1;
     } else {
-      useWrongAnswer(missedElem);
-      countOfGoodAns = 0;
       break;
     }
   }

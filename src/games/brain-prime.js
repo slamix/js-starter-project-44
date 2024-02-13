@@ -32,7 +32,7 @@ const startPrimeGame = () => {
   while (countOfGoodAns !== 3 && countOfWrongAns < 1) {
     const number = createNum();
     const goodAns = isPrimeNum(number).toString();
-    const ansOfPlayer = engineOfGames(`${number}`, goodAns);
+    const ansOfPlayer = engineOfGames(`${number}`, goodAns, name);
     if (ansOfPlayer) {
       countOfGoodAns += 1;
     } else {

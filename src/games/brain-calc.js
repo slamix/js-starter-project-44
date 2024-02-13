@@ -1,9 +1,8 @@
+import engineOfGames from '../index.js';
 import {
+  createNum,
   greeting,
-  setCongratulation,
-  engineOfGames,
-} from '../index.js';
-import createNum from '../support-functions.js';
+} from '../support-functions.js';
 
 let operator;
 const operationResult = (a, b) => {
@@ -23,7 +22,7 @@ const operationResult = (a, b) => {
 };
 
 const startCalcGame = () => {
-  greeting();
+  const name = greeting();
   let countOfGoodAns = 0;
   let wrongAns = 0;
   console.log('What is the result of the expression?');
@@ -31,7 +30,7 @@ const startCalcGame = () => {
     const firstNum = createNum();
     const secondNum = createNum();
     const goodAns = (operationResult(firstNum, secondNum)).toString();
-    const ansOfPlayer = engineOfGames(`${firstNum} ${operator} ${secondNum}`, goodAns);
+    const ansOfPlayer = engineOfGames(`${firstNum} ${operator} ${secondNum}`, goodAns, name);
     if (ansOfPlayer) {
       countOfGoodAns += 1;
     } else {
@@ -39,7 +38,7 @@ const startCalcGame = () => {
     }
   }
   if (countOfGoodAns === 3) {
-    setCongratulation();
+    console.log(`Congratulations, ${name}!`);
   }
 };
 

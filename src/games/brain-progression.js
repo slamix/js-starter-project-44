@@ -1,9 +1,8 @@
+import engineOfGames from '../index.js';
 import {
+  createNum,
   greeting,
-  engineOfGames,
-  setCongratulation,
-} from '../index.js';
-import createNum from '../support-functions.js';
+} from '../support-functions.js';
 
 let missedElem;
 
@@ -29,7 +28,7 @@ const createProgression = () => {
 
 const startProgressionGame = () => {
   let countOfGoodAns = 0;
-  greeting();
+  const name = greeting();
   console.log('What number is missing in the progression?');
   while (countOfGoodAns < 3) {
     const progressionStr = createProgression().join(' ');
@@ -41,7 +40,7 @@ const startProgressionGame = () => {
     }
   }
   if (countOfGoodAns === 3) {
-    setCongratulation();
+    console.log(`Congratulations, ${name}!`);
   }
 };
 export default startProgressionGame;

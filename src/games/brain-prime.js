@@ -1,9 +1,8 @@
+import engineOfGames from '../index.js';
 import {
+  createNum,
   greeting,
-  engineOfGames,
-  setCongratulation,
-} from '../index.js';
-import createNum from '../support-functions.js';
+} from '../support-functions.js';
 
 const isPrimeNum = (number) => {
   if (number === 0 || number === 1) {
@@ -26,7 +25,7 @@ const isPrimeNum = (number) => {
 };
 
 const startPrimeGame = () => {
-  greeting();
+  const name = greeting();
   let countOfGoodAns = 0;
   let countOfWrongAns = 0;
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
@@ -41,7 +40,7 @@ const startPrimeGame = () => {
     }
   }
   if (countOfGoodAns === 3) {
-    setCongratulation();
+    console.log(`Congratulations, ${name}!`);
   }
 };
 export default startPrimeGame;

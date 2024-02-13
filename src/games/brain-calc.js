@@ -1,9 +1,9 @@
 import {
-  createNum,
   greeting,
   setCongratulation,
   engineOfGames,
 } from '../index.js';
+import createNum from '../support-functions.js';
 
 let operator;
 const operationResult = (a, b) => {

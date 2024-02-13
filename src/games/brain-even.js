@@ -1,22 +1,27 @@
 import {
-  createNum,
   greeting,
   setCongratulation,
   engineOfGames,
 } from '../index.js';
+import createNum from '../support-functions.js';
+
+const evenOrNot = (number) => {
+  let result;
+  if (number % 2 === 0) {
+    result = 'yes';
+  } else {
+    result = 'no';
+  }
+  return result;
+};
 
 const startEvenOrNotGame = () => {
   greeting();
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   let countOfGoodAns = 0;
-  let goodAns;
   while (countOfGoodAns !== 3) {
     const num = createNum();
-    if (num % 2 === 0) {
-      goodAns = 'yes';
-    } else {
-      goodAns = 'no';
-    }
+    const goodAns = evenOrNot(num);
     const ansOfPlayer = engineOfGames(num, goodAns);
     if (ansOfPlayer) {
       countOfGoodAns += 1;

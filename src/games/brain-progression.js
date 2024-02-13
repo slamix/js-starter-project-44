@@ -1,9 +1,9 @@
 import {
-  createNum,
   greeting,
   engineOfGames,
   setCongratulation,
 } from '../index.js';
+import createNum from '../support-functions.js';
 
 let missedElem;
 

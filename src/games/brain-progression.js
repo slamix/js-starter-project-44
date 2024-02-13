@@ -32,7 +32,7 @@ const startProgressionGame = () => {
   console.log('What number is missing in the progression?');
   while (countOfGoodAns < 3) {
     const progressionStr = createProgression().join(' ');
-    const answer = engineOfGames(progressionStr, missedElem.toString());
+    const answer = engineOfGames(progressionStr, missedElem.toString(), name);
     if (answer) {
       countOfGoodAns += 1;
     } else {

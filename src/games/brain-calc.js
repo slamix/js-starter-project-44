@@ -8,18 +8,18 @@ const operationResult = () => {
   const numberOfOperation = createNum(1, 3);
   let result;
   switch (numberOfOperation) {
-  case 1:
-    operator = '+';
-    result = a + b;
-    break;
-  case 2:
-    operator = '-';
-    result = a - b;
-    break;
-  default:
-    operator = '*';
-    result = a * b;
-    break;
+    case 1:
+      operator = '+';
+      result = a + b;
+      break;
+    case 2:
+      operator = '-';
+      result = a - b;
+      break;
+    default:
+      operator = '*';
+      result = a * b;
+      break;
   }
 
   console.log(`Question: ${a} ${operator} ${b}`);

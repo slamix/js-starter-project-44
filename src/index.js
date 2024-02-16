@@ -7,9 +7,9 @@ const engineOfGame = (mainQuestion, functionOfGoodAnswer) => {
   let countOfGoodAns = 0;
   let countOfWrongAns = 0;
   while (countOfGoodAns !== 3 && countOfWrongAns < 1) {
-    const goodAns = functionOfGoodAnswer().toString();
+    const goodAns = functionOfGoodAnswer();
     const ansOfPlayer = readlineSync.question('Your answer: ');
-    if (goodAns === ansOfPlayer) {
+    if (goodAns.toString() === ansOfPlayer) {
       console.log('Correct!');
       countOfGoodAns += 1;
     } else {

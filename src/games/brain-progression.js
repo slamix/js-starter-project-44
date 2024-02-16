@@ -7,7 +7,7 @@ const createProgression = () => {
   const firstProgressionElem = createNum(1, 30);
   let currentProgressionElem = firstProgressionElem;
   const progressionStep = createNum(1, 10);
-  const indexMissedElem = createNum(0, arrLength);
+  const indexMissedElem = createNum(0, arrLength - 1);
   let missedElem;
   for (let i = 0; i < arrLength; i += 1) {
     if (i === indexMissedElem) {

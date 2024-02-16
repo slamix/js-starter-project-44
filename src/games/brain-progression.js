@@ -12,7 +12,7 @@ const createProgression = () => {
   for (let i = 0; i < arrLength; i += 1) {
     if (i === indexMissedElem) {
       progressionArr.push('..');
-      missedElem = currentProgressionElem;
+      missedElem = currentProgressionElem.toString();
     } else {
       progressionArr.push(currentProgressionElem);
     }
@@ -20,7 +20,7 @@ const createProgression = () => {
   }
 
   console.log(`Question: ${progressionArr.join(' ')}`);
-  return missedElem.toString();
+  return missedElem;
 };
 
 const startProgressionGame = () => {

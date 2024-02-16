@@ -1,17 +1,24 @@
 import readlineSync from 'readline-sync';
+import { greeting } from './utils.js';
 
-const engineOfGames = (question, goodAnswer, name) => {
-  console.log(`Question: ${question}`);
-  const ansOfPlayer = readlineSync.question('Your answer: ');
-  let result;
-  if (ansOfPlayer === goodAnswer) {
-    console.log('Correct!');
-    result = true;
-  } else {
-    console.log(`'${ansOfPlayer}' is wrong answer ;(. Correct answer was '${goodAnswer}'.\nLet's try again, ${name}!`);
-    result = false;
+const engineOfGame = (mainQuestion, functionOfGoodAnswer) => {
+  const name = greeting();
+  console.log(mainQuestion);
+  let countOfGoodAns = 0;
+  let countOfWrongAns = 0;
+  while (countOfGoodAns !== 3 && countOfWrongAns < 1) {
+    const goodAns = functionOfGoodAnswer();
+    const ansOfPlayer = readlineSync.question('Your answer: ');
+    if (goodAns === ansOfPlayer) {
+      console.log('Correct!');
+      countOfGoodAns += 1;
+    } else {
+      countOfWrongAns += 1;
+      console.log(`'${ansOfPlayer}' is wrong answer ;(. Correct answer was '${goodAns}'.\nLet's try again, ${name}!`);
+    }
   }
-  return result;
+  if (countOfGoodAns === 3) {
+    console.log(`Congratulations, ${name}!`);
+  }
 };
-
-export default engineOfGames;
+export default engineOfGame;

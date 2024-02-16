@@ -1,19 +1,14 @@
-import engineOfGames from '../index.js';
-import {
-  createNum,
-  greeting,
-} from '../support-functions.js';
-
-let missedElem;
+import engineOfGame from '../index.js';
+import { createNum } from '../utils.js';
 
 const createProgression = () => {
   const progressionArr = [];
-  const arrLength = Math.floor(5 + Math.random() * (10 - 5 + 1));
-  const firstProgressionElem = createNum();
+  const arrLength = createNum(5, 10);
+  const firstProgressionElem = createNum(1, 30);
   let currentProgressionElem = firstProgressionElem;
-  const progressionStep = Math.floor(1 + Math.random() * (10));
-  const indexMissedElem = Math.floor(Math.random() * (arrLength - 0));
-
+  const progressionStep = createNum(1, 10);
+  const indexMissedElem = createNum(0, arrLength);
+  let missedElem;
   for (let i = 0; i < arrLength; i += 1) {
     if (i === indexMissedElem) {
       progressionArr.push('..');
@@ -23,24 +18,12 @@ const createProgression = () => {
     }
     currentProgressionElem += progressionStep;
   }
-  return progressionArr;
+
+  console.log(`Question: ${progressionArr.join(' ')}`);
+  return missedElem.toString();
 };
 
 const startProgressionGame = () => {
-  let countOfGoodAns = 0;
-  const name = greeting();
-  console.log('What number is missing in the progression?');
-  while (countOfGoodAns < 3) {
-    const progressionStr = createProgression().join(' ');
-    const answer = engineOfGames(progressionStr, missedElem.toString(), name);
-    if (answer) {
-      countOfGoodAns += 1;
-    } else {
-      break;
-    }
-  }
-  if (countOfGoodAns === 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  engineOfGame('What number is missing in the progression?', createProgression);
 };
 export default startProgressionGame;

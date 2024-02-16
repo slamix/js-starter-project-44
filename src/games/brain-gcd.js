@@ -1,40 +1,21 @@
-import engineOfGames from '../index.js';
-import {
-  createNum,
-  greeting,
-} from '../support-functions.js';
+import engineOfGame from '../index.js';
+import { createNum } from '../utils.js';
 
-const findGcd = (num1, num2) => {
-  let firstNum = num1;
-  let secondNum = num2;
-  while (firstNum !== 0 && secondNum !== 0) {
-    if (firstNum > secondNum) {
-      firstNum %= secondNum;
+const findGcd = () => {
+  let num1 = createNum(1, 50);
+  let num2 = createNum(1, 50);
+  console.log(`Question: ${num1} ${num2}`);
+  while (num1 !== 0 && num2 !== 0) {
+    if (num1 > num2) {
+      num1 %= num2;
     } else {
-      secondNum %= firstNum;
+      num2 %= num1;
     }
   }
-  return firstNum + secondNum;
+  return (num1 + num2).toString();
 };
 
 const startGcdGame = () => {
-  const name = greeting();
-  let countOfGoodAns = 0;
-  let countOfWrongAns = 0;
-  console.log('Find the greatest common divisor of given numbers.');
-  while (countOfGoodAns !== 3 && countOfWrongAns < 1) {
-    const firstNum = createNum();
-    const secondNum = createNum();
-    const goodAns = findGcd(firstNum, secondNum).toString();
-    const ansOfPlayer = engineOfGames(`${firstNum} ${secondNum}`, goodAns, name);
-    if (ansOfPlayer) {
-      countOfGoodAns += 1;
-    } else {
-      countOfWrongAns += 1;
-    }
-  }
-  if (countOfGoodAns === 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  engineOfGame('Find the greatest common divisor of given numbers.', findGcd);
 };
 export default startGcdGame;

@@ -1,45 +1,33 @@
-import engineOfGames from '../index.js';
-import {
-  createNum,
-  greeting,
-} from '../support-functions.js';
+import engineOfGame from '../index.js';
+import { createNum } from '../utils.js';
 
 let operator;
-const operationResult = (a, b) => {
-  const numberOperation = Math.floor(Math.random() * 3);
+const operationResult = () => {
+  const a = createNum(0, 30);
+  const b = createNum(0, 30);
+  const numberOfOperation = createNum(1, 3);
   let result;
-  if (numberOperation === 1) {
+  switch (numberOfOperation) {
+  case 1:
     operator = '+';
     result = a + b;
-  } else if (numberOperation === 2) {
+    break;
+  case 2:
     operator = '-';
     result = a - b;
-  } else {
+    break;
+  default:
     operator = '*';
     result = a * b;
+    break;
   }
-  return result;
+
+  console.log(`Question: ${a} ${operator} ${b}`);
+  return result.toString();
 };
 
 const startCalcGame = () => {
-  const name = greeting();
-  let countOfGoodAns = 0;
-  let wrongAns = 0;
-  console.log('What is the result of the expression?');
-  while (countOfGoodAns !== 3 && wrongAns < 1) {
-    const firstNum = createNum();
-    const secondNum = createNum();
-    const goodAns = (operationResult(firstNum, secondNum)).toString();
-    const ansOfPlayer = engineOfGames(`${firstNum} ${operator} ${secondNum}`, goodAns, name);
-    if (ansOfPlayer) {
-      countOfGoodAns += 1;
-    } else {
-      wrongAns += 1;
-    }
-  }
-  if (countOfGoodAns === 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  engineOfGame('What is the result of the expression?', operationResult);
 };
 
 export default startCalcGame;

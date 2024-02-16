@@ -1,10 +1,8 @@
-import engineOfGames from '../index.js';
-import {
-  createNum,
-  greeting,
-} from '../support-functions.js';
+import engineOfGame from '../index.js';
+import { createNum } from '../utils.js';
 
-const isPrimeNum = (number) => {
+const isPrimeNum = () => {
+  const number = createNum(0, 100);
   if (number === 0 || number === 1) {
     return 'no';
   }
@@ -21,26 +19,11 @@ const isPrimeNum = (number) => {
   if (d * d === number) {
     result = 'no';
   }
+  console.log(`Question: ${number}`);
   return result;
 };
 
 const startPrimeGame = () => {
-  const name = greeting();
-  let countOfGoodAns = 0;
-  let countOfWrongAns = 0;
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  while (countOfGoodAns !== 3 && countOfWrongAns < 1) {
-    const number = createNum();
-    const goodAns = isPrimeNum(number).toString();
-    const ansOfPlayer = engineOfGames(`${number}`, goodAns, name);
-    if (ansOfPlayer) {
-      countOfGoodAns += 1;
-    } else {
-      countOfWrongAns += 1;
-    }
-  }
-  if (countOfGoodAns === 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  engineOfGame('Answer "yes" if given number is prime. Otherwise answer "no".', isPrimeNum);
 };
 export default startPrimeGame;

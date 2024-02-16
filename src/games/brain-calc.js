@@ -23,7 +23,7 @@ const operationResult = () => {
   }
 
   console.log(`Question: ${a} ${operator} ${b}`);
-  return result.toString();
+  return result;
 };
 
 const startCalcGame = () => {

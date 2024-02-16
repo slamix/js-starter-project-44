@@ -12,7 +12,7 @@ const createProgression = () => {
   for (let i = 0; i < arrLength; i += 1) {
     if (i === indexMissedElem) {
       progressionArr.push('..');
-      missedElem = currentProgressionElem.toString();
+      missedElem = currentProgressionElem;
     } else {
       progressionArr.push(currentProgressionElem);
     }

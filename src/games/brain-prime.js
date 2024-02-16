@@ -4,6 +4,7 @@ import { createNum } from '../utils.js';
 const isPrimeNum = () => {
   const num = createNum(0, 50);
   if (num === 0 || num === 1) {
+    console.log(`Question: ${num}`);
     return 'no';
   }
   let d = 2;

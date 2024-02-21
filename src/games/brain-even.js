@@ -1,19 +1,19 @@
-import engineOfGame from '../index.js';
-import { createNum } from '../utils.js';
+import engineOfGames from '../index.js';
+import { createNumFromRange } from '../utils.js';
 
-const evenOrNot = () => {
-  const number = createNum(0, 50);
-  let result;
-  if (number % 2 === 0) {
-    result = 'yes';
-  } else {
-    result = 'no';
+const isEven = (num) => num % 2 === 0;
+
+const evenOrNotGame = () => {
+  const num = createNumFromRange(0, 50);
+  let rightAnswer = 'no';
+  const question = num;
+  if (isEven(num)) {
+    rightAnswer = 'yes';
   }
-  console.log(`Question: ${number}`);
-  return result;
+  return [rightAnswer, question];
 };
 
 const startEvenOrNotGame = () => {
-  engineOfGame('Answer "yes" if the number is even, otherwise answer "no".', evenOrNot);
+  engineOfGames('Answer "yes" if the number is even, otherwise answer "no".', evenOrNotGame);
 };
 export default startEvenOrNotGame;

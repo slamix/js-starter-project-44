@@ -1,12 +1,12 @@
-import engineOfGame from '../index.js';
-import { createNum } from '../utils.js';
+import engineOfGames from '../index.js';
+import { createNumFromRange } from '../utils.js';
 
-let operator;
-const operationResult = () => {
-  const a = createNum(0, 30);
-  const b = createNum(0, 30);
-  const numberOfOperation = createNum(1, 3);
+const calcGame = () => {
+  const a = createNumFromRange(0, 30);
+  const b = createNumFromRange(0, 30);
+  const numberOfOperation = createNumFromRange(1, 3);
   let result;
+  let operator;
   switch (numberOfOperation) {
     case 1:
       operator = '+';
@@ -16,18 +16,19 @@ const operationResult = () => {
       operator = '-';
       result = a - b;
       break;
-    default:
+    case 3:
       operator = '*';
       result = a * b;
       break;
+    default:
+      throw new Error('Unknown state!');
   }
-
-  console.log(`Question: ${a} ${operator} ${b}`);
-  return result;
+  const question = `${a} ${operator} ${b}`;
+  return [result, question];
 };
 
 const startCalcGame = () => {
-  engineOfGame('What is the result of the expression?', operationResult);
+  engineOfGames('What is the result of the expression?', calcGame);
 };
 
 export default startCalcGame;

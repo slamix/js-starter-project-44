@@ -1,30 +1,34 @@
-import engineOfGame from '../index.js';
-import { createNum } from '../utils.js';
+import engineOfGames from '../index.js';
+import { createNumFromRange } from '../utils.js';
 
-const isPrimeNum = () => {
-  const num = createNum(0, 50);
+const isPrime = (num) => {
   if (num === 0 || num === 1) {
-    console.log(`Question: ${num}`);
-    return 'no';
+    return false;
   }
   let d = 2;
-  let result = 'yes';
   while (d * d < num) {
     if (num % d === 0) {
-      result = 'no';
-      break;
-    } else {
-      d += 1;
+      return false;
     }
+    d += 1;
   }
   if (d * d === num) {
-    result = 'no';
+    return false;
   }
-  console.log(`Question: ${num}`);
-  return result;
+  return true;
 };
 
-const startPrimeGame = () => {
-  engineOfGame('Answer "yes" if given number is prime. Otherwise answer "no".', isPrimeNum);
+const primeOrNotGame = () => {
+  const num = createNumFromRange(0, 50);
+  const question = num;
+  let rightAnswer = 'no';
+  if (isPrime(num)) {
+    rightAnswer = 'yes';
+  }
+  return [rightAnswer, question];
 };
-export default startPrimeGame;
+
+const startPrimeOrNotGame = () => {
+  engineOfGames('Answer "yes" if given number is prime. Otherwise answer "no".', primeOrNotGame);
+};
+export default startPrimeOrNotGame;

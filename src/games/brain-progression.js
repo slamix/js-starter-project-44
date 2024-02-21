@@ -1,13 +1,13 @@
-import engineOfGame from '../index.js';
-import { createNum } from '../utils.js';
+import engineOfGames from '../index.js';
+import { createNumFromRange } from '../utils.js';
 
-const createProgression = () => {
+const progressionGame = () => {
   const progressionArr = [];
-  const arrLength = createNum(5, 10);
-  const firstProgressionElem = createNum(1, 30);
+  const arrLength = createNumFromRange(5, 10);
+  const firstProgressionElem = createNumFromRange(1, 30);
   let currentProgressionElem = firstProgressionElem;
-  const progressionStep = createNum(1, 10);
-  const indexMissedElem = createNum(0, arrLength - 1);
+  const progressionStep = createNumFromRange(1, 10);
+  const indexMissedElem = createNumFromRange(0, arrLength - 1);
   let missedElem;
   for (let i = 0; i < arrLength; i += 1) {
     if (i === indexMissedElem) {
@@ -19,11 +19,11 @@ const createProgression = () => {
     currentProgressionElem += progressionStep;
   }
 
-  console.log(`Question: ${progressionArr.join(' ')}`);
-  return missedElem;
+  const question = progressionArr.join(' ');
+  return [missedElem, question];
 };
 
 const startProgressionGame = () => {
-  engineOfGame('What number is missing in the progression?', createProgression);
+  engineOfGames('What number is missing in the progression?', progressionGame);
 };
 export default startProgressionGame;

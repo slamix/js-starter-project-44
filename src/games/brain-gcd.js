@@ -1,10 +1,11 @@
-import engineOfGame from '../index.js';
-import { createNum } from '../utils.js';
+import engineOfGames from '../index.js';
+import { createNumFromRange } from '../utils.js';
 
-const findGcd = () => {
-  let num1 = createNum(1, 50);
-  let num2 = createNum(1, 50);
-  console.log(`Question: ${num1} ${num2}`);
+const findGcdGame = () => {
+  let num1 = createNumFromRange(1, 50);
+  let num2 = createNumFromRange(1, 50);
+  const firstNum = num1;
+  const secondNum = num2;
   while (num1 !== 0 && num2 !== 0) {
     if (num1 > num2) {
       num1 %= num2;
@@ -12,10 +13,11 @@ const findGcd = () => {
       num2 %= num1;
     }
   }
-  return (num1 + num2);
+  const question = `${firstNum} ${secondNum}`;
+  return [num1 + num2, question];
 };
 
 const startGcdGame = () => {
-  engineOfGame('Find the greatest common divisor of given numbers.', findGcd);
+  engineOfGames('Find the greatest common divisor of given numbers.', findGcdGame);
 };
 export default startGcdGame;

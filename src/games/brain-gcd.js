@@ -11,7 +11,7 @@ const findGcd = (firstNum, secondNum) => {
       copyOfSecondNum %= copyOfFirstNum;
     }
   }
-  const result = (firstNum + secondNum).toString();
+  const result = (copyOfFirstNum + copyOfSecondNum).toString();
   return result;
 };
 

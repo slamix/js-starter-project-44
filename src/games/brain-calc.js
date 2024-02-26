@@ -20,17 +20,17 @@ const calcFunction = (numberOfOperation, firstNum, secondNum) => {
     default:
       throw new Error('Unknown state!');
   }
-  const question = `${firstNum} ${operator} ${secondNum}`;
   result = result.toString();
-  return [result, question];
+  return [result, operator];
 };
 
 const calcGame = () => {
   const firstNum = createNumFromRange(0, 30);
   const secondNum = createNumFromRange(0, 30);
   const numberOfOperation = createNumFromRange(1, 3);
-  const [result, question] = calcFunction(numberOfOperation, firstNum, secondNum);
-  return [result, question];
+  const [goodAns, operator] = calcFunction(numberOfOperation, firstNum, secondNum);
+  const question = `${firstNum} ${operator} ${secondNum}`;
+  return [goodAns, question];
 };
 
 const startCalcGame = () => {

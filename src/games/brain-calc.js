@@ -1,29 +1,35 @@
 import engineOfGames from '../index.js';
 import { createNumFromRange } from '../utils.js';
 
-const calcGame = () => {
-  const a = createNumFromRange(0, 30);
-  const b = createNumFromRange(0, 30);
-  const numberOfOperation = createNumFromRange(1, 3);
-  let result;
+const calcFunction = (numberOfOperation, firstNum, secondNum) => {
   let operator;
+  let result;
   switch (numberOfOperation) {
     case 1:
       operator = '+';
-      result = a + b;
+      result = firstNum + secondNum;
       break;
     case 2:
       operator = '-';
-      result = a - b;
+      result = firstNum - secondNum;
       break;
     case 3:
       operator = '*';
-      result = a * b;
+      result = firstNum * secondNum;
       break;
     default:
       throw new Error('Unknown state!');
   }
-  const question = `${a} ${operator} ${b}`;
+  const question = `${firstNum} ${operator} ${secondNum}`;
+  result = result.toString();
+  return [result, question];
+};
+
+const calcGame = () => {
+  const firstNum = createNumFromRange(0, 30);
+  const secondNum = createNumFromRange(0, 30);
+  const numberOfOperation = createNumFromRange(1, 3);
+  const [result, question] = calcFunction(numberOfOperation, firstNum, secondNum);
   return [result, question];
 };
 

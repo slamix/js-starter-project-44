@@ -21,10 +21,7 @@ const isPrime = (num) => {
 const primeOrNotGame = () => {
   const num = createNumFromRange(0, 50);
   const question = num;
-  let rightAnswer = 'no';
-  if (isPrime(num)) {
-    rightAnswer = 'yes';
-  }
+  const rightAnswer = isPrime(num) ? 'yes' : 'no';
   return [rightAnswer, question];
 };
 

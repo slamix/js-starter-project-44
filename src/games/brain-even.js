@@ -5,11 +5,8 @@ const isEven = (num) => num % 2 === 0;
 
 const evenOrNotGame = () => {
   const num = createNumFromRange(0, 50);
-  let rightAnswer = 'no';
   const question = num;
-  if (isEven(num)) {
-    rightAnswer = 'yes';
-  }
+  const rightAnswer = isEven(num) ? 'yes' : 'no';
   return [rightAnswer, question];
 };
 

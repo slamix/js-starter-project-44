@@ -1,26 +1,25 @@
 import engineOfGames from '../index.js';
 import { createNumFromRange } from '../utils.js';
 
-const progressionGame = () => {
+const createProgression = (arrLength, firstElem, progressionStep, indexOfMissedElem) => {
   const progressionArr = [];
+  progressionArr[0] = firstElem;
+  for (let i = 1; i < arrLength; i += 1) {
+    progressionArr[i] = progressionArr[i - 1] + progressionStep;
+  }
+  const missedElem = progressionArr[indexOfMissedElem].toString();
+  progressionArr[indexOfMissedElem] = '..';
+  return [missedElem, progressionArr];
+};
+
+const progressionGame = () => {
   const arrLength = createNumFromRange(5, 10);
   const firstProgressionElem = createNumFromRange(1, 30);
-  let currentProgressionElem = firstProgressionElem;
   const progressionStep = createNumFromRange(1, 10);
-  const indexMissedElem = createNumFromRange(0, arrLength - 1);
-  let missedElem;
-  for (let i = 0; i < arrLength; i += 1) {
-    if (i === indexMissedElem) {
-      progressionArr.push('..');
-      missedElem = currentProgressionElem;
-    } else {
-      progressionArr.push(currentProgressionElem);
-    }
-    currentProgressionElem += progressionStep;
-  }
-
+  const indexOfMissedElem = createNumFromRange(0, arrLength - 1);
+  const [rightAns, progressionArr] = createProgression(arrLength, firstProgressionElem, progressionStep, indexOfMissedElem);
   const question = progressionArr.join(' ');
-  return [missedElem, question];
+  return [rightAns, question];
 };
 
 const startProgressionGame = () => {

@@ -10,7 +10,7 @@ const engineOfGames = (mainQuestion, functionOfGame) => {
     const [goodAns, question] = functionOfGame();
     console.log(`Question: ${question}`);
     const ansOfPlayer = readlineSync.question('Your answer: ');
-    if (String(goodAns) === ansOfPlayer) {
+    if (goodAns === ansOfPlayer) {
       console.log('Correct!');
       countOfGoodAns += 1;
     } else {

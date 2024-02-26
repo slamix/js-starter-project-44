@@ -20,9 +20,9 @@ const isPrime = (num) => {
 
 const primeOrNotGame = () => {
   const num = createNumFromRange(0, 50);
-  const question = num;
-  const rightAnswer = isPrime(num) ? 'yes' : 'no';
-  return [rightAnswer, question];
+  const question = `${num}`;
+  const goodAnswer = isPrime(num) ? 'yes' : 'no';
+  return [goodAnswer, question];
 };
 
 const startPrimeOrNotGame = () => {

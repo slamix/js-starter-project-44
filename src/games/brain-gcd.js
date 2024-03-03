@@ -2,17 +2,10 @@ import engineOfGames from '../index.js';
 import { createNumFromRange } from '../utils.js';
 
 const findGcd = (firstNum, secondNum) => {
-  let copyOfFirstNum = firstNum;
-  let copyOfSecondNum = secondNum;
-  while (copyOfFirstNum !== 0 && copyOfSecondNum !== 0) {
-    if (copyOfFirstNum > copyOfSecondNum) {
-      copyOfFirstNum %= copyOfSecondNum;
-    } else {
-      copyOfSecondNum %= copyOfFirstNum;
-    }
+  if (secondNum === 0) {
+    return firstNum.toString();
   }
-  const result = (copyOfFirstNum + copyOfSecondNum).toString();
-  return result;
+  return findGcd(secondNum, firstNum % secondNum);
 };
 
 const GcdGame = () => {
